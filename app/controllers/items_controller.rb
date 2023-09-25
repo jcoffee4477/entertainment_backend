@@ -20,4 +20,15 @@ def create
   render :show
 end
 
+def update
+  @item = Item.find_by(id: params[:id])
+  @item.update(
+    name: params[:name] || @item.name,
+    image_url: params[:image_url] || @item.image_url,
+    description: params[:description] || @item.description,
+    category: params[:category] || @item.category
+  )
+  render :show 
+end
+
 end
