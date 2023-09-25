@@ -31,4 +31,10 @@ def update
   render :show 
 end
 
+def destroy
+  @item = Item.find_by(id: params[:id])
+  @item.destroy
+  render json: {message: "Item deleted successfully"}
+end
+
 end
